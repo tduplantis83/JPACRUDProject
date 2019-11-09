@@ -44,7 +44,15 @@ class ElectricVehicleTest {
 	@DisplayName("Test Electric Vehicle Entity ID Mappings")
 	void test() {
 		assertNotNull(e);
+		assertEquals("Tesla", e.getMake());
 		assertEquals("Model Y", e.getModel());
+		assertEquals(2020, e.getProductionStartYear());
+		assertNull(e.getProductionEndYear());
+		assertNull(e.getEstimatedNumberProduced());
+		assertEquals(140, e.getTopSpeedMPH());
+		assertEquals(39000, e.getOriginalcostUSD(), 0.001);
+		assertEquals(300, e.getMaxRangeInMiles());
+		assertEquals("Coming Soon", e.getComments());
 	}
 
 }

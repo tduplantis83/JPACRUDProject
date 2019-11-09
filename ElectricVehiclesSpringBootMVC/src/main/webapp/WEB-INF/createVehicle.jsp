@@ -13,21 +13,23 @@
 	crossorigin="anonymous">
 <title>Create New Film</title>
 </head>
-<body style="background-color: lightgray">
+<body>
 	<div class="container">
 		<div class="row">
-			<div class="col-4"></div>
-			<div class="col-4">
-				<h1 style="color: green">Create a New Vehicle</h1>
+			<div class="col-2"></div>
+			<div class="col-8">
+				<h2 style="color: green">Create a New Vehicle</h2>
 				<c:choose>
 					<c:when test="${createStatus}">
-						<h2>Vehicle Creation Failed!</h2>
+						<h2 style="color: green">Vehicle Creation Successful!</h2>
 					</c:when>
 				</c:choose>
-				<div class="col-4"></div>
+				<div class="col-2"></div>
 			</div>
 		</div>
 	</div>
+
+
 	<div class="container">
 		<div class="row">
 			<div class="col-2"></div>
@@ -44,22 +46,21 @@
 							placeholder="Production Start Year" required="required">
 						<br> <label for="productionEndYear">Production End
 							Year</label><input type="text" name="productionEndYear"
-							class="form-control" placeholder="Production End Year"> <br> <label
-							for="estimatedNumberProduced">Est Number Produced</label> <input
+							class="form-control" placeholder="Production End Year"> <br>
+						<label for="estimatedNumberProduced">Est Number Produced</label> <input
 							type="text" name="estimatedNumberProduced" class="form-control"
-							placeholder="Estimated Number Produced">
-						<br> <label for="topSpeedMPH">Top Speed (MPH)</label> <input
-							type="text" name="topSpeedMPH" class="form-control"
-							placeholder="Top Speed in MPH"> <br>
-						<label for="replacementCost">Original Cost (USD)</label> <input
+							placeholder="Estimated Number Produced"> <br> <label
+							for="topSpeedMPH">Top Speed (MPH)</label> <input type="text"
+							name="topSpeedMPH" class="form-control"
+							placeholder="Top Speed in MPH"> <br> <label
+							for="replacementCost">Original Cost (USD)</label> <input
 							type="text" name="originalcostUSD" class="form-control"
-							placeholder="Original Cost in USD"> <br>
-						<label for="rating">Max Range (Miles)</label> <input type="text"
+							placeholder="Original Cost in USD"> <br> <label
+							for="rating">Max Range (Miles)</label> <input type="text"
 							name="maxRangeInMiles" class="form-control"
-							placeholder="Maximum Range in Miles">
-						<br> <label for="rating">Comments</label> <input type="text"
-							name="comments" class="form-control"
-							placeholder="Additional Comments">
+							placeholder="Maximum Range in Miles"> <br> <label
+							for="rating">Comments</label> <input type="text" name="comments"
+							class="form-control" placeholder="Additional Comments">
 					</div>
 					<button type="submit" class="btn btn-success btn-block">Create
 						Vehicle</button>

@@ -30,7 +30,9 @@ public class ElectricVehicleController {
 	@RequestMapping(path="getAllEV.do", method=RequestMethod.GET)
 	public ModelAndView getAllEV() {
 		ModelAndView mv = new ModelAndView();
-		
+		mv.addObject("updateStatus", false);
+		mv.addObject("createStatus", false);
+		mv.addObject("deleteStatus", false);
 		mv.addObject("EV", dao.selectAllVehicles());
 		mv.setViewName("results");
 		
@@ -41,8 +43,14 @@ public class ElectricVehicleController {
 	public ModelAndView getEVByID(@RequestParam("id") int id) {
 		ModelAndView mv = new ModelAndView();
 		List<ElectricVehicle> results = new ArrayList<>();
-		results.add(dao.selectVehicleByID(id));
+		ElectricVehicle returned = dao.selectVehicleByID(id);
+		if(returned != null) {
+			results.add(dao.selectVehicleByID(id));
+		}
 		mv.addObject("EV", results);
+		mv.addObject("createStatus", false);
+		mv.addObject("deleteStatus", false);
+		mv.addObject("updateStatus", false);
 		mv.setViewName("results");
 		
 		return mv;
@@ -53,6 +61,9 @@ public class ElectricVehicleController {
 		ModelAndView mv = new ModelAndView();
 		
 		mv.addObject("EV", dao.selectVehicleByMake(make));
+		mv.addObject("createStatus", false);
+		mv.addObject("deleteStatus", false);
+		mv.addObject("updateStatus", false);
 		mv.setViewName("results");
 		
 		return mv;
@@ -61,30 +72,27 @@ public class ElectricVehicleController {
 	@RequestMapping(path = "vehicleCreate.do")
 	public ModelAndView vehicleCreate() {
 		ModelAndView mv = new ModelAndView();
-		ElectricVehicle e = new ElectricVehicle();
 		mv.setViewName("createVehicle");
-		mv.addObject("newVehicle", e);
 		mv.addObject("createStatus", false);
 		return mv;
 	}
 	
 	@RequestMapping(path="vehicleCreate.do", method=RequestMethod.POST)
-	public ModelAndView createVehicle (@Valid ElectricVehicle ev, Errors errors) {
+	public ModelAndView createVehicle (ElectricVehicle ev) {
 		ModelAndView mv = new ModelAndView();
 		ElectricVehicle results = dao.createVehicle(ev);
-		if(errors.hasErrors()) {
-			
-		}
 		if(results != null) {
 			List<ElectricVehicle> created = new ArrayList<>();
 			created.add(results);
 			mv.addObject("EV", created);
 			mv.addObject("createStatus", true);
+			mv.addObject("deleteStatus", false);
+			mv.addObject("updateStatus", false);
 			mv.setViewName("results");
 		}
 		else {
 			mv.addObject("EV", ev);
-			mv.addObject("createStatus", false);
+			mv.addObject("createStatus", true);
 			mv.setViewName("createVehicle");
 		}
 		
@@ -97,6 +105,9 @@ public class ElectricVehicleController {
 		ElectricVehicle results = dao.selectVehicleByID(id);
 		mv.addObject("EV", dao.selectVehicleByID(results.getId()));
 		mv.setViewName("updateVehicle");
+		mv.addObject("createStatus", false);
+		mv.addObject("deleteStatus", false);
+		mv.addObject("updateStatus", false);
 		return mv;
 	}
 	
@@ -109,6 +120,8 @@ public class ElectricVehicleController {
 			updated.add(dao.selectVehicleByID(ev.getId()));
 			mv.addObject("EV", updated);
 			mv.addObject("updateStatus", true);
+			mv.addObject("createStatus", false);
+			mv.addObject("deleteStatus", false);
 			mv.setViewName("results");
 		}
 		else {
@@ -133,11 +146,13 @@ public class ElectricVehicleController {
 		ModelAndView mv = new ModelAndView();
 		if(dao.deleteVehicle(ev)) {
 			mv.addObject("deleteStatus", true);
+			mv.addObject("updateStatus", false);
+			mv.addObject("createStatus", false);
 			mv.setViewName("results");
 		}
 		else {
 			mv.addObject("EV", ev);
-			mv.addObject("deleteStatus", false);
+			mv.addObject("deleteStatus", true);
 			mv.setViewName("deleteVehicle");
 		}
 		

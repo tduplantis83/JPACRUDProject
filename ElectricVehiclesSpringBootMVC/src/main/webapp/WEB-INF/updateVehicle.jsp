@@ -15,24 +15,20 @@
 </head>
 
 <body>
-	<div class="container">
-
-		<body style="background-color: lightgray">
-			<div class="container">
-
-				<div class="row">
-					<div class="col-4"></div>
-					<div class="col-4">
-						<h1 style="color: red">Update this Vehicle</h1>
-						<c:choose>
-							<c:when test="${updateStatus}">
-								<h2>Film Update Failed!</h2>
-							</c:when>
-						</c:choose>
-						<div class="col-4"></div>
-					</div>
-				</div>
+<div class="container">
+		<div class="row">
+			<div class="col-2"></div>
+			<div class="col-8">
+				<h2 style="color: orange">Update this Vehicle</h2>
+				<c:choose>
+					<c:when test="${updateStatus}">
+						<h2 style="color: red">Vehicle Update Failed!</h2>
+					</c:when>
+				</c:choose>
+				<div class="col-2"></div>
 			</div>
+		</div>
+	</div>
 			<div class="container">
 				<div class="row">
 					<div class="col-2"></div>
