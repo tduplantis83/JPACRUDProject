@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS `electric_vehicle` (
   `Production_End_Year` YEAR(4) NULL DEFAULT NULL,
   `Est_Number_Produced` INT(11) NULL DEFAULT NULL,
   `Top_Speed_MPH` INT(4) NULL DEFAULT NULL,
-  `Original_Cost_USD` DECIMAL(7,2) NULL DEFAULT NULL,
+  `Original_Cost_USD` DECIMAL(10,2) NULL DEFAULT NULL,
   `Max_Range_In_Miles` INT(4) NULL DEFAULT NULL,
   `Coments` VARCHAR(1000) NULL DEFAULT NULL,
   PRIMARY KEY (`id`))

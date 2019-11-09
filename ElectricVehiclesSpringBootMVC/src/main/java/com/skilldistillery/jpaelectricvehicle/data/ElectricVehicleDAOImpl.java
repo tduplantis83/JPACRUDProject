@@ -68,6 +68,15 @@ public class ElectricVehicleDAOImpl implements ElectricVehicleDAO {
 		// get relevant match from database
 		ElectricVehicle matchingEV = em.find(ElectricVehicle.class, ev.getId());
 				
+		matchingEV.setMake(ev.getMake());
+		matchingEV.setModel(ev.getModel());
+		matchingEV.setProductionStartYear(ev.getProductionStartYear());
+		matchingEV.setProductionEndYear(ev.getProductionEndYear());
+		matchingEV.setEstimatedNumberProduced(ev.getEstimatedNumberProduced());
+		matchingEV.setTopSpeedMPH(ev.getTopSpeedMPH());
+		matchingEV.setOriginalcostUSD(ev.getOriginalcostUSD());
+		matchingEV.setMaxRangeInMiles(ev.getMaxRangeInMiles());
+		matchingEV.setComments(ev.getComments());
 		// run query
 		em.persist(matchingEV);
 
@@ -78,11 +87,22 @@ public class ElectricVehicleDAOImpl implements ElectricVehicleDAO {
 	}
 
 	@Override
-	public void deleteVehicle(ElectricVehicle ev) {	
-		em.remove(ev);
+	public boolean deleteVehicle(ElectricVehicle ev) {	
+		ElectricVehicle matchingEV = em.find(ElectricVehicle.class, ev.getId());
+		
+		em.remove(matchingEV);
 
 		// update local actor to match database
 		em.flush();
+		
+		ElectricVehicle stillInDB = em.find(ElectricVehicle.class, ev.getId());
+		if(stillInDB == null) {
+			return true;
+		}
+		else {
+			return false;
+		}
+		
 	}
 
 }

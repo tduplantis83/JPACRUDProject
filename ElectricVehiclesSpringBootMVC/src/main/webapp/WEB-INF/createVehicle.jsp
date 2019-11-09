@@ -44,23 +44,22 @@
 							placeholder="Production Start Year" required="required">
 						<br> <label for="productionEndYear">Production End
 							Year</label><input type="text" name="productionEndYear"
-							class="form-control" placeholder="Production End Year"
-							required="required"> <br> <label
+							class="form-control" placeholder="Production End Year"> <br> <label
 							for="estimatedNumberProduced">Est Number Produced</label> <input
 							type="text" name="estimatedNumberProduced" class="form-control"
-							placeholder="Estimated Number Produced" required="required">
+							placeholder="Estimated Number Produced">
 						<br> <label for="topSpeedMPH">Top Speed (MPH)</label> <input
 							type="text" name="topSpeedMPH" class="form-control"
-							placeholder="Top Speed in MPH" required="required"> <br>
+							placeholder="Top Speed in MPH"> <br>
 						<label for="replacementCost">Original Cost (USD)</label> <input
 							type="text" name="originalcostUSD" class="form-control"
-							placeholder="Original Cost in USD" required="required"> <br>
+							placeholder="Original Cost in USD"> <br>
 						<label for="rating">Max Range (Miles)</label> <input type="text"
 							name="maxRangeInMiles" class="form-control"
-							placeholder="Maximum Range in Miles" required="required">
+							placeholder="Maximum Range in Miles">
 						<br> <label for="rating">Comments</label> <input type="text"
 							name="comments" class="form-control"
-							placeholder="Additional Comments" required="required">
+							placeholder="Additional Comments">
 					</div>
 					<button type="submit" class="btn btn-success btn-block">Create
 						Vehicle</button>

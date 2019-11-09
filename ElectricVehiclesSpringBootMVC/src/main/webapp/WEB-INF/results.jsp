@@ -55,16 +55,16 @@
 						<tr>
 							<td colspan="1"></td>
 							<td colspan="4"><form:form action="vehicleUpdate.do"
-									method="get">
+									method="get" name="id">
 									<button type="submit" class="btn btn-warning btn-block">Update
 										this Vehicle</button>
-									<input type="hidden" name="id" value="${e.id}">
+									<input type="hidden" name="id" value="${e.id }">
 								</form:form></td>
 							<td colspan="4"><form:form action="vehicleDelete.do"
-									method="get">
+									method="get" name="id">
 									<button type="submit" class="btn btn-danger btn-block">Delete
 										this Vehicle</button>
-									<input type="hidden" name="id" value="${e.id}">
+									<input type="hidden" name="id" value="${e.id }">
 								</form:form></td>
 						</tr>
 					</c:forEach>

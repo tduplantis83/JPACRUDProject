@@ -47,26 +47,24 @@
 									required="required"> <br> <label for="releaseYear">
 									Production Start Year</label> <input type="text"
 									name="productionStartYear" class="form-control"
-									value="${EV.productionStartYear}" required="required">
+									value="${EV.productionStartYear}">
 								<br> <label for="productionEndYear">Production End
 									Year</label><input type="text" name="productionEndYear"
-									class="form-control" value="${EV.productionEndYear}"
-									required="required"> <br> <label
+									class="form-control" value="${EV.productionEndYear}"> <br> <label
 									for="estimatedNumberProduced">Est Number Produced</label> <input
 									type="text" name="estimatedNumberProduced" class="form-control"
-									value="${EV.estimatedNumberProduced}" required="required">
+									value="${EV.estimatedNumberProduced}">
 								<br> <label for="topSpeedMPH">Top Speed (MPH)</label> <input
 									type="text" name="topSpeedMPH" class="form-control"
-									value="${EV.topSpeedMPH}" required="required"> <br>
+									value="${EV.topSpeedMPH}"> <br>
 								<label for="originalcostUSD">Original Cost (USD)</label> <input
 									type="text" name="originalcostUSD" class="form-control"
-									value="${EV.originalcostUSD}" required="required"> <br>
+									value="${EV.originalcostUSD}"> <br>
 								<label for="maxRangeInMiles">Max Range (Miles)</label> <input type="text"
 									name="maxRangeInMiles" class="form-control"
-									value="${EV.maxRangeInMiles}" required="required"> <br>
+									value="${EV.maxRangeInMiles}"> <br>
 								<label for="comments">Comments</label> <input type="text"
-									name="comments" class="form-control" value="${EV.comments }"
-									required="required">
+									name="comments" class="form-control" value="${EV.comments }">
 							</div>
 							<button type="submit" class="btn btn-warning btn-block">Update
 								Vehicle</button>
