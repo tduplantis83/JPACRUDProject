@@ -34,49 +34,54 @@
 				</div>
 			</div>
 			<div class="container">
-		<div class="row">
-			<div class="col-2"></div>
-			<div class="col-8">
-				<form:form action="vehicleCreate.do" method="POST" items="${eNew}">
-					<div class="form-group">
-					<input type="hidden" name="id" value="${eNew.id}" /> 
-						<label for="title">Make</label> <input type="text" name="title"
-									class="form-control" value="${eNew.make}">
-						<br> <label for="desc">Model</label> <input type="text"
-							name="model" class="form-control" value="${eNew.model}"
-							required="required"> <br> <label for="releaseYear">
-							Production Start Year</label> <input type="text" name="productionStartYear" class="form-control"
-							value="${eNew.productionStartYear}"> <br>
-						<label for="productionEndYear">Production End Year</label><input
-							type="text" name="productionEndYear" class="form-control"
-							value="${eNew.productionEndYear}"> <br>
-						<label for="estimatedNumberProduced">Est Number Produced</label> <input type="text"
-							name="estimatedNumberProduced" class="form-control" value="${eNew.estimatedNumberProduced}"> <br> <label for="topSpeedMPH">Top Speed (MPH)</label>
-
-						<input type="text" name="topSpeedMPH" class="form-control"
-							value="${eNew.topSpeedMPH}"> <br> <label
-							for="replacementCost">Original Cost (USD)</label> <input type="text"
-							name="originalcostUSD" class="form-control"
-							value="${eNew.originalcostUSD}"> <br>
-						<label for="rating">Max Range (Miles)</label> <input type="text"
-							name="maxRangeInMiles" class="form-control"
-							value="${eNew.maxRangeInMiles}"> <br>
-							<label for="rating">Comments</label> <input type="text"
-							name="comments" class="form-control"
-							value="${eNew.comments }">
+				<div class="row">
+					<div class="col-2"></div>
+					<div class="col-8">
+						<form:form action="vehicleUpdate.do" method="POST" items="${EV}">
+							<div class="form-group">
+								<input type="hidden" name="id" value="${EV.id}" /> <label
+									for="title">Make</label> <input type="text" name="make"
+									class="form-control" value="${EV.make}" required="required">
+								<br> <label for="model">Model</label> <input type="text"
+									name="model" class="form-control" value="${EV.model}"
+									required="required"> <br> <label for="releaseYear">
+									Production Start Year</label> <input type="text"
+									name="productionStartYear" class="form-control"
+									value="${EV.productionStartYear}" required="required">
+								<br> <label for="productionEndYear">Production End
+									Year</label><input type="text" name="productionEndYear"
+									class="form-control" value="${EV.productionEndYear}"
+									required="required"> <br> <label
+									for="estimatedNumberProduced">Est Number Produced</label> <input
+									type="text" name="estimatedNumberProduced" class="form-control"
+									value="${EV.estimatedNumberProduced}" required="required">
+								<br> <label for="topSpeedMPH">Top Speed (MPH)</label> <input
+									type="text" name="topSpeedMPH" class="form-control"
+									value="${EV.topSpeedMPH}" required="required"> <br>
+								<label for="originalcostUSD">Original Cost (USD)</label> <input
+									type="text" name="originalcostUSD" class="form-control"
+									value="${EV.originalcostUSD}" required="required"> <br>
+								<label for="maxRangeInMiles">Max Range (Miles)</label> <input type="text"
+									name="maxRangeInMiles" class="form-control"
+									value="${EV.maxRangeInMiles}" required="required"> <br>
+								<label for="comments">Comments</label> <input type="text"
+									name="comments" class="form-control" value="${EV.comments }"
+									required="required">
+							</div>
+							<button type="submit" class="btn btn-warning btn-block">Update
+								Vehicle</button>
+						</form:form>
+						<div class="col-2"></div>
 					</div>
-					<button type="submit" class="btn btn-success btn-block">Update Vehicle</button>
-				</form:form>
-				<div class="col-2"></div>
+				</div>
 			</div>
-		</div>
-	</div>
+
 			<br>
 			<div class="container">
 				<div class="row">
 					<div class="col-2"></div>
 					<div class="col-8">
-						<form action="welcomePage.do" method="get">
+						<form action="index.do" method="get">
 							<button class="btn btn-success btn-block btn-lg">Back to
 								Home</button>
 						</form>

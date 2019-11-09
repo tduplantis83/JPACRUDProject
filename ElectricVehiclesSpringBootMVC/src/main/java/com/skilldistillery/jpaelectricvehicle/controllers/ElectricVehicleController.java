@@ -1,12 +1,11 @@
 package com.skilldistillery.jpaelectricvehicle.controllers;
 
-import java.util.List;
+import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.jpaelectricvehicle.data.ElectricVehicleDAO;
@@ -28,7 +27,7 @@ public class ElectricVehicleController {
 	public ModelAndView getAllEV() {
 		ModelAndView mv = new ModelAndView();
 		
-		mv.addObject("allEV", dao.selectAllVehicles());
+		mv.addObject("EV", dao.selectAllVehicles());
 		mv.setViewName("results");
 		
 		return mv;
@@ -37,8 +36,9 @@ public class ElectricVehicleController {
 	@RequestMapping(path="getEVByID.do", method=RequestMethod.GET)
 	public ModelAndView getEVByID(int id) {
 		ModelAndView mv = new ModelAndView();
-		
-		mv.addObject("EVbyID", dao.selectVehicleByID(id));
+		List<ElectricVehicle> results = new ArrayList<>();
+		results.add(dao.selectVehicleByID(id));
+		mv.addObject("EV", results);
 		mv.setViewName("results");
 		
 		return mv;
@@ -48,7 +48,7 @@ public class ElectricVehicleController {
 	public ModelAndView getEVByMake(String make) {
 		ModelAndView mv = new ModelAndView();
 		
-		mv.addObject("EVbyMake", dao.selectVehicleByMake(make));
+		mv.addObject("EV", dao.selectVehicleByMake(make));
 		mv.setViewName("results");
 		
 		return mv;
@@ -63,15 +63,18 @@ public class ElectricVehicleController {
 	}
 	
 	@RequestMapping(path="vehicleCreate.do", method=RequestMethod.POST)
-	public ModelAndView createVehicle(ElectricVehicle v) {
+	public ModelAndView createVehicle(ElectricVehicle ev) {
 		ModelAndView mv = new ModelAndView();
-		ElectricVehicle results = dao.createVehicle(v);
+		ElectricVehicle results = dao.createVehicle(ev);
 		if(results != null) {
-			mv.addObject("EVbyID", dao.selectVehicleByID(results.getId()));
+			List<ElectricVehicle> created = new ArrayList<>();
+			created.add(results);
+			mv.addObject("EV", created);
 			mv.addObject("createStatus", true);
 			mv.setViewName("results");
 		}
 		else {
+			mv.addObject("EV", ev);
 			mv.addObject("createStatus", false);
 			mv.setViewName("createVehicle");
 		}
@@ -82,7 +85,8 @@ public class ElectricVehicleController {
 	@RequestMapping(path = "vehicleUpdate.do", params = "id", method = RequestMethod.GET)
 	public ModelAndView vehicleUpdate(int id) {
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("eNew", dao.selectVehicleByID(id));
+		ElectricVehicle results = dao.selectVehicleByID(id);
+		mv.addObject("EV", dao.selectVehicleByID(results.getId()));
 		mv.setViewName("updateVehicle");
 		return mv;
 	}
@@ -90,15 +94,16 @@ public class ElectricVehicleController {
 	@RequestMapping(path = "vehicleUpdate.do", method = RequestMethod.POST)
 	public ModelAndView filmUpdateResult(ElectricVehicle ev) {
 		ModelAndView mv = new ModelAndView();
-		ElectricVehicle eNew = new ElectricVehicle();
-		eNew = dao.updateVehicle(ev);
-		if(eNew != null) {
-			mv.addObject("eNew", eNew);
+		ElectricVehicle results = dao.updateVehicle(ev);
+		if(results != null) {
+			List<ElectricVehicle> updated = new ArrayList<>();
+			updated.add(dao.selectVehicleByID(ev.getId()));
+			mv.addObject("EV", updated);
 			mv.addObject("updateStatus", true);
-			mv.setViewName("result");
+			mv.setViewName("results");
 		}
 		else {
-			mv.addObject("eNew", ev);
+			mv.addObject("EV", ev);
 			mv.addObject("updateStatus", false);
 			mv.setViewName("updateVehicle");
 		}
@@ -106,24 +111,24 @@ public class ElectricVehicleController {
 		return mv;
 	}
 	
-	@RequestMapping(path = "vehicleDelete.do")
+	@RequestMapping(path = "vehicleDelete.do", params = "id", method = RequestMethod.GET)
 	public ModelAndView vehicleDelete(int id) {
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("ev", dao.selectVehicleByID(id));
+		mv.addObject("EV", dao.selectVehicleByID(id));
 		mv.setViewName("deleteVehicle");
 		return mv;
 	}
 	
 	@RequestMapping(path="vehicleDelete.do", method=RequestMethod.POST)
-	public ModelAndView deleteVehicle(int id) {
+	public ModelAndView deleteVehicle(ElectricVehicle ev) {
 		ModelAndView mv = new ModelAndView();
-		int results = dao.deleteVehicle(id);
-		if(results > 0) {
+		if(dao.selectVehicleByID(ev.getId()) == null) {
 			mv.addObject("deleteStatus", true);
 			mv.setViewName("results");
 		}
 		else {
-			mv.addObject("createStatus", false);
+			mv.addObject("EV", ev);
+			mv.addObject("deleteStatus", false);
 			mv.setViewName("deleteVehicle");
 		}
 		

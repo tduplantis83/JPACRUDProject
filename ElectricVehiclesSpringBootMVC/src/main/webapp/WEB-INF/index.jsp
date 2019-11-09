@@ -45,7 +45,7 @@
 							class="form-control" placeholder="Enter Vehicle ID">
 					</div>
 					<button type="submit" class="btn btn-success btn-block">Find
-						EV by ID<</button>
+						EV by ID</button>
 				</form:form>
 			</div>
 			<div class="col-3"></div>

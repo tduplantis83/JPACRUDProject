@@ -39,28 +39,31 @@
 						<br> <label for="desc">Model</label> <input type="text"
 							name="model" class="form-control" placeholder="Model"
 							required="required"> <br> <label for="releaseYear">
-							Production Start Year</label> <input type="text" name="productionStartYear" class="form-control"
-							placeholder="Production Start Year" required="required"> <br>
-						<label for="productionEndYear">Production End Year</label><input
-							type="text" name="productionEndYear" class="form-control"
-							placeholder="Production End Year" required="required"> <br>
-						<label for="estimatedNumberProduced">Est Number Produced</label> <input type="text"
-							name="estimatedNumberProduced" class="form-control" placeholder="Estimated Number Produced"
-							required="required"> <br> <label for="topSpeedMPH">Top Speed (MPH)</label>
-
-						<input type="text" name="topSpeedMPH" class="form-control"
-							placeholder="Top Speed in MPH" required="required"> <br> <label
-							for="replacementCost">Original Cost (USD)</label> <input type="text"
-							name="originalcostUSD" class="form-control"
+							Production Start Year</label> <input type="text"
+							name="productionStartYear" class="form-control"
+							placeholder="Production Start Year" required="required">
+						<br> <label for="productionEndYear">Production End
+							Year</label><input type="text" name="productionEndYear"
+							class="form-control" placeholder="Production End Year"
+							required="required"> <br> <label
+							for="estimatedNumberProduced">Est Number Produced</label> <input
+							type="text" name="estimatedNumberProduced" class="form-control"
+							placeholder="Estimated Number Produced" required="required">
+						<br> <label for="topSpeedMPH">Top Speed (MPH)</label> <input
+							type="text" name="topSpeedMPH" class="form-control"
+							placeholder="Top Speed in MPH" required="required"> <br>
+						<label for="replacementCost">Original Cost (USD)</label> <input
+							type="text" name="originalcostUSD" class="form-control"
 							placeholder="Original Cost in USD" required="required"> <br>
 						<label for="rating">Max Range (Miles)</label> <input type="text"
 							name="maxRangeInMiles" class="form-control"
-							placeholder="Maximum Range in Miles" required="required"> <br>
-							<label for="rating">Comments</label> <input type="text"
+							placeholder="Maximum Range in Miles" required="required">
+						<br> <label for="rating">Comments</label> <input type="text"
 							name="comments" class="form-control"
 							placeholder="Additional Comments" required="required">
 					</div>
-					<button type="submit" class="btn btn-success btn-block">Create Vehicle</button>
+					<button type="submit" class="btn btn-success btn-block">Create
+						Vehicle</button>
 				</form:form>
 				<div class="col-2"></div>
 			</div>
@@ -72,7 +75,7 @@
 			<div class="col-2"></div>
 			<div class="col-8">
 				<form action="index.do" method="get">
-					<button class="btn btn-primary btn-block">Back to
+					<button class="btn btn-success btn-block btn-lg">Back to
 						Home</button>
 				</form>
 			</div>

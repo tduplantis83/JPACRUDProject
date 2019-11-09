@@ -10,8 +10,8 @@ import org.springframework.stereotype.Service;
 
 import com.skilldistillery.jpaelectricvehicle.entities.ElectricVehicle;
 
-@Service
 @Transactional
+@Service
 public class ElectricVehicleDAOImpl implements ElectricVehicleDAO {
 	@PersistenceContext
 	private EntityManager em;
@@ -30,24 +30,21 @@ public class ElectricVehicleDAOImpl implements ElectricVehicleDAO {
 	}
 
 	@Override
-	public List<ElectricVehicle> selectVehicleByID(int id) {
-		// build query
-		String query = "Select e from ElectricVehicle e where e.id = :id";
-
+	public ElectricVehicle selectVehicleByID(int id) {
 		// run query
-		List<ElectricVehicle> result = em.createQuery(query, ElectricVehicle.class).setParameter("id", id)
-				.getResultList();
+		ElectricVehicle result = em.find(ElectricVehicle.class, id);
 
 		return result;
 	}
 
 	@Override
-	public List<ElectricVehicle> selectVehicleByMake(String make) {
+	public List<ElectricVehicle> selectVehicleByMake(String m) {
 		// build query
 		String query = "Select e from ElectricVehicle e where e.make = :make";
 
 		// run query
-		List<ElectricVehicle> result = em.createQuery(query, ElectricVehicle.class).setParameter("make", make)
+		List<ElectricVehicle> result = em.createQuery(query, ElectricVehicle.class)
+				.setParameter("make", m)
 				.getResultList();
 
 		return result;
@@ -60,61 +57,32 @@ public class ElectricVehicleDAOImpl implements ElectricVehicleDAO {
 		String query = "Select e from ElectricVehicle e";
 
 		// run query
-		List<ElectricVehicle> result = em.createQuery(query, ElectricVehicle.class).getResultList();
+		List<ElectricVehicle> result = em.createQuery(query, ElectricVehicle.class)
+				.getResultList();
 
 		return result;
 	}
 
 	@Override
-	@Transactional
 	public ElectricVehicle updateVehicle(ElectricVehicle ev) {
-
+		// get relevant match from database
+		ElectricVehicle matchingEV = em.find(ElectricVehicle.class, ev.getId());
+				
 		// run query
-		em.persist(ev);
+		em.persist(matchingEV);
 
 		// flush
 		em.flush();
 
-		return ev;
+		return matchingEV;
 	}
 
 	@Override
-	@Transactional
-	public int deleteVehicle(int id) {
-		// build query
-		String query = "Select e from ElectricVehicle e where e.id = :id";
-
-		// get relevant addresses from database
-		List<ElectricVehicle> matchingEV = em.createQuery(query, ElectricVehicle.class).setParameter("id", id)
-				.getResultList();
-
-		// delete each match from DB
-		if (matchingEV.size() > 0) {
-			for (ElectricVehicle ev : matchingEV) {
-				em.remove(matchingEV);
-			}
-		}
+	public void deleteVehicle(ElectricVehicle ev) {	
+		em.remove(ev);
 
 		// update local actor to match database
 		em.flush();
-
-		// run query again to see if the actor was deleted or not
-		// find requested actor
-		int countDeleted = 0;
-		for (ElectricVehicle ev : matchingEV) {
-			// looks for address in DB & returns true if found
-			// set boolean to opposite
-			// success being true means address was deleted
-			boolean success = !em.contains(ev);
-			if (success) {
-				countDeleted++;
-			}
-		}
-		if (countDeleted == matchingEV.size()) {
-			return id;
-		} else {
-			return 0;
-		}
 	}
 
 }

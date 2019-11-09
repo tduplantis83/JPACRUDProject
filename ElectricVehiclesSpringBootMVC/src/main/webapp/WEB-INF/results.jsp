@@ -16,10 +16,10 @@
 </head>
 <body>
 
-	<!-- display ALL EV'S -->
-	<c:if test="${ not empty allEV }">
+	<!-- display EV'S -->
+	<c:if test="${ not empty EV }">
 		<div class="container">
-			<h3 style="color: green">All EV's</h3>
+			<h3 style="color: green">All Electric Vehicles</h3>
 			<table class="table table-striped table-bordered table-hover">
 				<thead class="table-dark">
 					<tr>
@@ -35,7 +35,7 @@
 					</tr>
 				<thead>
 				<tbody>
-					<c:forEach var="e" items="${allEV}">
+					<c:forEach var="e" items="${EV}">
 						<tr>
 							<td>${e.id }</td>
 							<td>${e.make }</td>
@@ -44,148 +44,62 @@
 							<td>${e.productionEndYear }</td>
 							<td>${e.estimatedNumberProduced }</td>
 							<td>${e.topSpeedMPH }</td>
-							<td><fmt:setLocale value="en_US" />
-								<fmt:formatNumber value="${e.originalcostUSD }" type="currency" /></td>
+							<td><fmt:setLocale value="en_US" /> <fmt:formatNumber
+									value="${e.originalcostUSD }" type="currency" /></td>
 							<td>${e.maxRangeInMiles }</td>
 						</tr>
 						<tr>
 							<td colspan="1"><strong>Comments: </strong></td>
 							<td colspan="8">${e.comments }</td>
 						</tr>
+						<tr>
+							<td colspan="1"></td>
+							<td colspan="4"><form:form action="vehicleUpdate.do"
+									method="get">
+									<button type="submit" class="btn btn-warning btn-block">Update
+										this Vehicle</button>
+									<input type="hidden" name="id" value="${e.id}">
+								</form:form></td>
+							<td colspan="4"><form:form action="vehicleDelete.do"
+									method="get">
+									<button type="submit" class="btn btn-danger btn-block">Delete
+										this Vehicle</button>
+									<input type="hidden" name="id" value="${e.id}">
+								</form:form></td>
+						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
 		</div>
 	</c:if>
 
-
-	<!-- list EVs by ID -->
-	<c:if test="${ not empty EVbyID }">
-		<div class="container">
-			<h3 style="color: green">EV's by ID</h3>
-			<table class="table table-striped table-bordered table-hover">
-				<thead class="table-dark">
-					<tr>
-						<td><strong>ID</strong></td>
-						<td><strong>Make</strong></td>
-						<td><strong>Model</strong></td>
-						<td><strong>Production Start Year</strong></td>
-						<td><strong>Production End Year</strong></td>
-						<td><strong>Est. Number Produced</strong></td>
-						<td><strong>Top Speed (MPH)</strong></td>
-						<td><strong>Original Cost (USD)</strong></td>
-						<td><strong>Range (Miles)</strong></td>
-					</tr>
-					<thead>
-				
-				<tbody>
-					<c:forEach var="e" items="${EVbyID}">
-						<tr>
-							<td>${e.id }</td>
-							<td>${e.make }</td>
-							<td>${e.model }</td>
-							<td>${e.productionStartYear }</td>
-							<td>${e.productionEndYear }</td>
-							<td>${e.estimatedNumberProduced }</td>
-							<td>${e.topSpeedMPH }</td>
-							<td><fmt:setLocale value="en_US" />
-								<fmt:formatNumber value="${e.originalcostUSD }" type="currency" /></td>
-							<td>${e.maxRangeInMiles }</td>
-						</tr>
-						<tr>
-						<td colspan="1"><strong>Comments: </strong></td>
-						<td colspan="8">${e.comments }</td>
-						</tr>
-					<tr>
-				<td colspan="1"></td>
-					<td colspan="4"><form:form action="vehicleUpdate.do"
-									method="GET">
-					<button type="submit" class="btn btn-warning btn-block">Update this Vehicle</button>
-					<input type="hidden" name="id" value="${e.id}">
-				</form:form></td>
-				<td colspan="4"><form:form action="vehicleDelete.do"
-									method="GET">
-					<button type="submit" class="btn btn-danger btn-block">Delete this Vehicle</button>
-					<input type="hidden" name="id" value="${e.id}">
-				</form:form></td>
-				</tr>
-					</c:forEach>
-				</tbody>
-			</table>
+	<br>
+	<div class="container">
+		<div class="row">
+			<div class="col-2"></div>
+			<div class="col-8">
+				<form action="index.do" method="get">
+					<button class="btn btn-success btn-block btn-lg">Back to
+						Home</button>
+				</form>
+			</div>
+			<div class="col-2"></div>
 		</div>
-	</c:if>
-	
-	
-	<!-- list EVs by Make -->
-	<c:if test="${ not empty EVbyMake }">
-		<div class="container">
-			<h3 style="color: green">EV's by Make</h3>
-			<table class="table table-striped table-bordered table-hover">
-				<thead class="table-dark">
-					<tr>
-						<td><strong>ID</strong></td>
-						<td><strong>Make</strong></td>
-						<td><strong>Model</strong></td>
-						<td><strong>Production Start Year</strong></td>
-						<td><strong>Production End Year</strong></td>
-						<td><strong>Est. Number Produced</strong></td>
-						<td><strong>Top Speed (MPH)</strong></td>
-						<td><strong>Original Cost (USD)</strong></td>
-						<td><strong>Range (Miles)</strong></td>
-					</tr>
-				
-				<thead>
-				
-				<tbody>
-					<c:forEach var="e" items="${EVbyMake}">
-						<tr>
-							<td>${e.id }</td>
-							<td>${e.make }</td>
-							<td>${e.model }</td>
-							<td>${e.productionStartYear }</td>
-							<td>${e.productionEndYear }</td>
-							<td>${e.estimatedNumberProduced }</td>
-							<td>${e.topSpeedMPH }</td>
-							<td><fmt:setLocale value="en_US" />
-								<fmt:formatNumber value="${e.originalcostUSD }" type="currency" /></td>
-							<td>${e.maxRangeInMiles }</td>
-						</tr>
-						<tr>
-						<td colspan="1"><strong>Comments: </strong></td>
-						<td colspan="8">${e.comments }</td>
-						</tr>
-				<tr>
-				<td colspan="1"></td>
-					<td colspan="4"><form:form action="vehicleUpdate.do"
-									method="GET">
-					<button type="submit" class="btn btn-warning btn-block">Update this Vehicle</button>
-					<input type="hidden" name="id" value="${e.id}">
-				</form:form></td>
-				<td colspan="4"><form:form action="vehicleDelete.do"
-									method="GET">
-					<button type="submit" class="btn btn-danger btn-block">Delete this Vehicle</button>
-					<input type="hidden" name="id" value="${e.id}">
-				</form:form></td>
-				</tr>
-					</c:forEach>
-				</tbody>
-				</table>
-		</div>
-	</c:if>
+	</div>
 
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-						integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-						crossorigin="anonymous"></script>
-					<script
-						src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-						integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-						crossorigin="anonymous"></script>
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
 	<script
-						src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-						integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-						crossorigin="anonymous"></script>
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
 
 
-				</body>
+</body>
 </html>
