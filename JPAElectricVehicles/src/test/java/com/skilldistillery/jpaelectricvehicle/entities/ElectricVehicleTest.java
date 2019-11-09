@@ -41,10 +41,10 @@ class ElectricVehicleTest {
 	}
 
 	@Test
-	@DisplayName("Test Electric Vehicle Entity Mappings")
+	@DisplayName("Test Electric Vehicle Entity ID Mappings")
 	void test() {
 		assertNotNull(e);
-		assertEquals(27, e.getId());
+		assertEquals("Model Y", e.getModel());
 	}
 
 }
