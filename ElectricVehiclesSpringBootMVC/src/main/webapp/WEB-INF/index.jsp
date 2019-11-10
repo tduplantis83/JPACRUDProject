@@ -18,13 +18,17 @@
 </head>
 <body>
 
+<div class="container-fluid">
+<h3 style="color: green">Electric Vehicles MVC Database
+					Application</h3>
+					<hr>
+</div>
+<br>
 	<div class="container">
 		<div class="row">
 			<div class="col-3"></div>
 			<div class="col-6">
-				<h3 style="color: green">Electric Vehicles MVC Database
-					Application</h3>
-				<hr>
+				
 				<form:form action="getAllEV.do" method="GET">
 					<button type="submit" class="btn btn-success btn-block">List
 						All EV's</button>
@@ -54,6 +58,7 @@
 	</div>
 
 	<br>
+	<br>
 
 	<div class="container">
 		<div class="row">
@@ -63,7 +68,7 @@
 					<div class="form-group">
 						<label for="make">Vehicle Make</label> <input type="text"
 							name="make" class="form-control"
-							placeholder="Enter Vehicle Make to search">
+							placeholder="Enter Vehicle Make">
 					</div>
 					<button type="submit" class="btn btn-success btn-block">Find
 						EV's by Make</button>
@@ -73,6 +78,7 @@
 		</div>
 	</div>
 
+	<br>
 	<br>
 
 	<div class="container">
@@ -87,6 +93,9 @@
 			<div class="col-3"></div>
 		</div>
 	</div>
+	
+	<br>
+	<br>
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
