@@ -67,14 +67,14 @@
 
 	<div class="container">
 		<div class="row">
-			<div class="col-3"></div>
-			<div class="col-6">
+			<div class="col-2"></div>
+			<div class="col-8">
 				<form:form action="vehicleCreate.do" method="GET">
 					<button type="submit" class="btn btn-success btn-block">Create
 						a New Electric Vehicle</button>
 				</form:form>
 			</div>
-			<div class="col-3"></div>
+			<div class="col-2"></div>
 		</div>
 	</div>
 	
