@@ -11,7 +11,7 @@
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	crossorigin="anonymous">
-<title>Create New Film</title>
+<title>Create Electric Vehicle</title>
 </head>
 <body>
 	<div class="container">
@@ -34,7 +34,7 @@
 		<div class="row">
 			<div class="col-2"></div>
 			<div class="col-8">
-				<form:form action="vehicleCreate.do" method="POST">
+				<form:form action="vehicleCreate.do" method="POST" modelAttribute="EV">
 					<div class="form-group">
 						<label for="title">Make</label> <input type="text" name="make"
 							class="form-control" placeholder="Make" required="required">
@@ -43,7 +43,7 @@
 							required="required"> <br> <label for="releaseYear">
 							Production Start Year</label> <input type="text"
 							name="productionStartYear" class="form-control"
-							placeholder="Production Start Year" required="required">
+							placeholder="Production Start Year">
 						<br> <label for="productionEndYear">Production End
 							Year</label><input type="text" name="productionEndYear"
 							class="form-control" placeholder="Production End Year"> <br>

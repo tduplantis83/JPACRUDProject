@@ -6,6 +6,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="electric_vehicle")
@@ -13,7 +16,11 @@ public class ElectricVehicle {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
+	@NotNull
+	@Size(min=1, max=45, message = "Vehicle Make must be 1 to 45 characters in length")
 	private String make;
+	@NotNull
+	@Size(min=1, max=45, message = "Vehicle Model must be 1 to 100 characters in length")
 	private String model;
 	@Column(name="Production_Start_Year")
 	private Integer productionStartYear;
@@ -25,7 +32,6 @@ public class ElectricVehicle {
 	private Integer topSpeedMPH;
 	@Column(name="Original_Cost_USD")
 	private Double originalcostUSD;
-	@Column(name="Max_Range_In_Miles")
 	private Integer maxRangeInMiles;
 	@Column(name="coments")
 	private String comments;

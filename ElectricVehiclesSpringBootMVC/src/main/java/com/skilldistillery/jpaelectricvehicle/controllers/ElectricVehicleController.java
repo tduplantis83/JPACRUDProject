@@ -78,22 +78,29 @@ public class ElectricVehicleController {
 	}
 	
 	@RequestMapping(path="vehicleCreate.do", method=RequestMethod.POST)
-	public ModelAndView createVehicle (ElectricVehicle ev) {
+	public ModelAndView createVehicle (@Valid ElectricVehicle ev, Errors errors) {
 		ModelAndView mv = new ModelAndView();
-		ElectricVehicle results = dao.createVehicle(ev);
-		if(results != null) {
-			List<ElectricVehicle> created = new ArrayList<>();
-			created.add(results);
-			mv.addObject("EV", created);
-			mv.addObject("createStatus", true);
-			mv.addObject("deleteStatus", false);
-			mv.addObject("updateStatus", false);
-			mv.setViewName("results");
+		//look for errors
+		if(errors.hasErrors()) {
+			mv.addObject("EV");
+			mv.setViewName("createVehicle");
 		}
 		else {
-			mv.addObject("EV", ev);
-			mv.addObject("createStatus", true);
-			mv.setViewName("createVehicle");
+			ElectricVehicle results = dao.createVehicle(ev);
+			if(results != null) {
+				List<ElectricVehicle> created = new ArrayList<>();
+				created.add(results);
+				mv.addObject("EV", created);
+				mv.addObject("createStatus", true);
+				mv.addObject("deleteStatus", false);
+				mv.addObject("updateStatus", false);
+				mv.setViewName("results");
+			}
+			else {
+				mv.addObject("EV", ev);
+				mv.addObject("createStatus", true);
+				mv.setViewName("createVehicle");
+			}
 		}
 		
 		return mv;
