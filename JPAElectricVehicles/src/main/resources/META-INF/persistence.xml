@@ -9,6 +9,7 @@
 
 		<!-- Class Definitions / Entities Here -->
 		<class>com.skilldistillery.jpaelectricvehicle.entities.ElectricVehicle</class>
+		<class>com.skilldistillery.jpaelectricvehicle.entities.CharingStation</class>
 
 
 

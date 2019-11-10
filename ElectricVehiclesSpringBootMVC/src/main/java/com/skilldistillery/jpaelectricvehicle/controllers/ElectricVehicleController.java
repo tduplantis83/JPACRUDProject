@@ -20,10 +20,17 @@ public class ElectricVehicleController {
 	@Autowired
 	private ElectricVehicleDAO dao;
 	
-	@RequestMapping(path= {"/", "index.do"})
+	@RequestMapping(path= {"/"})
+	public ModelAndView home(ModelAndView mv) {
+		mv = new ModelAndView();
+		mv.setViewName("home");
+		return mv; 
+	}
+	
+	@RequestMapping(path= {"EVindex.do"})
 	public ModelAndView index(ModelAndView mv) {
 		mv = new ModelAndView();
-		mv.setViewName("index");
+		mv.setViewName("EVindex");
 		return mv; 
 	}
 	
