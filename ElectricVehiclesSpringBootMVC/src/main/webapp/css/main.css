@@ -11,4 +11,10 @@ h3 {
 	 text-align: center
 }
 
+#parent {
+    padding: 10% 0;
+}
+#child {
+    padding: 5% 0;
+}
 

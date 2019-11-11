@@ -18,87 +18,83 @@
 </head>
 <body>
 
-<div class="container-fluid">
-<h3 style="color: green">Electric Vehicles</h3>
-					<hr>
-</div>
-<br>
-	<br>
-	<div class="container">
-		<div class="row">
-			<div class="col-2"></div>
-			<div class="col-8">
-				<form:form action="getEVByID.do" method="GET">
-					<div class="form-group">
-						<label for="id">Vehicle ID</label> <input type="text" name="id"
-							class="form-control" placeholder="Enter Vehicle ID">
+	<div class="container-fluid">
+		<h3 style="color: green">Electric Vehicles</h3>
+		<hr>
+	</div>
+	<div id="parent">
+		<div id="child">
+			<div class="container">
+				<div class="row">
+					<div class="col-2"></div>
+					<div class="col-8">
+						<form:form action="getEVByID.do" method="GET">
+							<div class="form-group">
+								<label for="id">Vehicle ID</label> <input type="text" name="id"
+									class="form-control" placeholder="Enter Vehicle ID">
+							<button type="submit" class="btn btn-success btn-block">Find
+								EV by ID</button>
+							</div>
+						</form:form>
 					</div>
-					<button type="submit" class="btn btn-success btn-block">Find
-						EV by ID</button>
-				</form:form>
+					<div class="col-2"></div>
+				</div>
 			</div>
-			<div class="col-2"></div>
-		</div>
-	</div>
 
-	<br>
-	<br>
+			<br> <br>
 
-	<div class="container">
-		<div class="row">
-			<div class="col-2"></div>
-			<div class="col-8">
-				<form:form action="getEVByMake.do" method="GET">
-					<div class="form-group">
-						<label for="make">Vehicle Make</label> <input type="text"
-							name="make" class="form-control"
-							placeholder="Enter Vehicle Make">
+			<div class="container">
+				<div class="row">
+					<div class="col-2"></div>
+					<div class="col-8">
+						<form:form action="getEVByMake.do" method="GET">
+							<div class="form-group">
+								<label for="make">Vehicle Make</label> <input type="text"
+									name="make" class="form-control"
+									placeholder="Enter Vehicle Make">
+							<button type="submit" class="btn btn-success btn-block">Find
+								EV's by Make</button>
+							</div>
+						</form:form>
 					</div>
-					<button type="submit" class="btn btn-success btn-block">Find
-						EV's by Make</button>
-				</form:form>
+					<div class="col-2"></div>
+				</div>
 			</div>
-			<div class="col-2"></div>
-		</div>
-	</div>
 
-	<br>
-	<br>
+			<br> <br>
 
-	<div class="container">
-		<div class="row">
-			<div class="col-2"></div>
-			<div class="col-8">
-				<form:form action="vehicleCreate.do" method="GET">
-					<button type="submit" class="btn btn-success btn-block">Create
-						a New Electric Vehicle</button>
-				</form:form>
+			<div class="container">
+				<div class="row">
+					<div class="col-2"></div>
+					<div class="col-8">
+						<form:form action="vehicleCreate.do" method="GET">
+							<button type="submit" class="btn btn-success btn-block">Create
+								a New Electric Vehicle</button>
+						</form:form>
+					</div>
+					<div class="col-2"></div>
+				</div>
 			</div>
-			<div class="col-2"></div>
-		</div>
-	</div>
-	
-	<br>
-	<br>
-	
-	<div class="container">
-		<div class="row">
-			<div class="col-2"></div>
-			<div class="col-8">
-				
-				<form:form action="getAllEV.do" method="GET">
-					<button type="submit" class="btn btn-success btn-block">List
-						All EV's</button>
-				</form:form>
+
+			<br> <br>
+
+			<div class="container">
+				<div class="row">
+					<div class="col-2"></div>
+					<div class="col-8">
+
+						<form:form action="getAllEV.do" method="GET">
+							<button type="submit" class="btn btn-success btn-block">List
+								All EV's</button>
+						</form:form>
+					</div>
+					<div class="col-2"></div>
+				</div>
 			</div>
-			<div class="col-2"></div>
-		</div>
-	</div>
-	
-	<br>
-	<br>
-	
-	<div class="container">
+
+			<br> <br>
+
+			<div class="container">
 				<div class="row">
 					<div class="col-2"></div>
 					<div class="col-8">
@@ -110,9 +106,8 @@
 					<div class="col-2"></div>
 				</div>
 			</div>
-			
-	<br>
-	<br>
+		</div>
+	</div>
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

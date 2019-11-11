@@ -17,85 +17,81 @@
 <title>Charging Stations</title>
 </head>
 <body>
-
 	<div class="container-fluid">
 		<h3 style="color: blue">Charging Stations</h3>
 		<hr>
 	</div>
-	<br>
-	<br>
-	<div class="container">
-		<div class="row">
-			<div class="col-2"></div>
-			<div class="col-8">
-				<form:form action="getStationByCity.do" method="GET">
-					<div class="form-group">
-						<label for="city">City</label> <select
-							class="form-control" id="city" name="city">
-							<c:forEach var="c" items="${CSCity}">
-								<option>${c}</option>
-							</c:forEach>
-						</select>
+	<div id="parent">
+		<div id="child">
+			<div class="container">
+				<div class="row">
+					<div class="col-2"></div>
+					<div class="col-8">
+						<form:form action="getStationByCity.do" method="GET">
+							<div class="form-group">
+								<label for="city">City</label> <select class="form-control"
+									id="city" name="city">
+									<c:forEach var="c" items="${CSCity}">
+										<option>${c}</option>
+									</c:forEach>
+								</select>
+								<button type="submit" class="btn btn-info btn-block">Find
+									Charging Station by City</button>
+							</div>
+						</form:form>
 					</div>
-					<button type="submit" class="btn btn-info btn-block">Find
-						Charging Station by City</button>
-				</form:form>
+					<div class="col-2"></div>
+				</div>
 			</div>
-			<div class="col-2"></div>
-		</div>
-	</div>
-	<br>
-	<br>
-	<div class="container">
-		<div class="row">
-			<div class="col-2"></div>
-			<div class="col-8">
-				<form:form action="getStationByState.do" method="GET">
-					<div class="form-group">
-						<label for="state">State Abbreviation</label> <select
-							class="form-control" id="state" name="state">
-							<c:forEach var="cs" items="${CSState}">
-								<option>${cs}</option>
-							</c:forEach>
-						</select>
+			<br> <br>
+			<div class="container">
+				<div class="row">
+					<div class="col-2"></div>
+					<div class="col-8">
+						<form:form action="getStationByState.do" method="GET">
+							<div class="form-group">
+								<label for="state">State Abbreviation</label> <select
+									class="form-control" id="state" name="state">
+									<c:forEach var="cs" items="${CSState}">
+										<option>${cs}</option>
+									</c:forEach>
+								</select>
+								<button type="submit" class="btn btn-info btn-block">Find
+									Charging Station by State</button>
+							</div>
+						</form:form>
 					</div>
-					<button type="submit" class="btn btn-info btn-block">Find
-						Charging Station by State Abbreviation</button>
-				</form:form>
+					<div class="col-2"></div>
+				</div>
 			</div>
-			<div class="col-2"></div>
+			<br> <br>
+			<div class="container">
+				<div class="row">
+					<div class="col-2"></div>
+					<div class="col-8">
+						<form:form action="createStation.do" method="GET">
+							<button type="submit" class="btn btn-info btn-block">Create
+								A New Charging Station</button>
+						</form:form>
+					</div>
+					<div class="col-2"></div>
+				</div>
+			</div>
+			<br> <br>
+			<div class="container">
+				<div class="row">
+					<div class="col-2"></div>
+					<div class="col-8">
+						<form action="/" method="get">
+							<button class="btn btn-primary btn-block btn-lg">Back to
+								Home</button>
+						</form>
+					</div>
+					<div class="col-2"></div>
+				</div>
+			</div>
 		</div>
 	</div>
-	<br>
-	<br>
-	<div class="container">
-		<div class="row">
-			<div class="col-2"></div>
-			<div class="col-8">
-				<form:form action="createStation.do" method="GET">
-					<button type="submit" class="btn btn-info btn-block">Create
-						A New Charging Station</button>
-				</form:form>
-			</div>
-			<div class="col-2"></div>
-		</div>
-	</div>
-	<br>
-	<br>
-	<div class="container">
-		<div class="row">
-			<div class="col-2"></div>
-			<div class="col-8">
-				<form action="/" method="get">
-					<button class="btn btn-primary btn-block btn-lg">Back to
-						Home</button>
-				</form>
-			</div>
-			<div class="col-2"></div>
-		</div>
-	</div>
-	<br>
-	<br>
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
