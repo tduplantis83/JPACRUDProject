@@ -115,5 +115,17 @@ public class ElectricVehicleDAOImpl implements ElectricVehicleDAO {
 		return result;
 	}
 
+	@Override
+	public List<String> selectdistinctVehicleModels() {
+		// build query
+		String query = "Select distinct e.model from ElectricVehicle e";
+
+		// run query
+		List<String> result = em.createQuery(query, String.class).getResultList();
+
+		Collections.sort(result);
+
+		return result;
+	}
 
 }

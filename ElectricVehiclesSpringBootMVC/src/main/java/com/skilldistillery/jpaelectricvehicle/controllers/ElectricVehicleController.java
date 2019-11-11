@@ -31,6 +31,7 @@ public class ElectricVehicleController {
 	public ModelAndView index(ModelAndView mv) {
 		mv = new ModelAndView();
 		mv.addObject("EVMake", dao.selectdistinctVehicleMakes());
+		mv.addObject("EVModel", dao.selectdistinctVehicleModels());
 		mv.setViewName("EVindex");
 		return mv; 
 	}
