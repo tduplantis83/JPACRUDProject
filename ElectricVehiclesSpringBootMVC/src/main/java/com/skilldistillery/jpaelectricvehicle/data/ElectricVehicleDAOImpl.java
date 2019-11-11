@@ -1,5 +1,6 @@
 package com.skilldistillery.jpaelectricvehicle.data;
 
+import java.util.Collections;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -25,7 +26,6 @@ public class ElectricVehicleDAOImpl implements ElectricVehicleDAO {
 		// update local object to match database
 		em.flush();
 
-
 		return ev;
 	}
 
@@ -43,8 +43,7 @@ public class ElectricVehicleDAOImpl implements ElectricVehicleDAO {
 		String query = "Select e from ElectricVehicle e where e.make = :make";
 
 		// run query
-		List<ElectricVehicle> result = em.createQuery(query, ElectricVehicle.class)
-				.setParameter("make", m)
+		List<ElectricVehicle> result = em.createQuery(query, ElectricVehicle.class).setParameter("make", m)
 				.getResultList();
 
 		return result;
@@ -57,8 +56,7 @@ public class ElectricVehicleDAOImpl implements ElectricVehicleDAO {
 		String query = "Select e from ElectricVehicle e";
 
 		// run query
-		List<ElectricVehicle> result = em.createQuery(query, ElectricVehicle.class)
-				.getResultList();
+		List<ElectricVehicle> result = em.createQuery(query, ElectricVehicle.class).getResultList();
 
 		return result;
 	}
@@ -67,7 +65,7 @@ public class ElectricVehicleDAOImpl implements ElectricVehicleDAO {
 	public ElectricVehicle updateVehicle(ElectricVehicle ev) {
 		// get relevant match from database
 		ElectricVehicle matchingEV = em.find(ElectricVehicle.class, ev.getId());
-				
+
 		matchingEV.setMake(ev.getMake());
 		matchingEV.setModel(ev.getModel());
 		matchingEV.setProductionStartYear(ev.getProductionStartYear());
@@ -87,22 +85,35 @@ public class ElectricVehicleDAOImpl implements ElectricVehicleDAO {
 	}
 
 	@Override
-	public boolean deleteVehicle(ElectricVehicle ev) {	
+	public boolean deleteVehicle(ElectricVehicle ev) {
 		ElectricVehicle matchingEV = em.find(ElectricVehicle.class, ev.getId());
-		
+
 		em.remove(matchingEV);
 
 		// update local actor to match database
 		em.flush();
-		
+
 		ElectricVehicle stillInDB = em.find(ElectricVehicle.class, ev.getId());
-		if(stillInDB == null) {
+		if (stillInDB == null) {
 			return true;
-		}
-		else {
+		} else {
 			return false;
 		}
-		
+
 	}
+
+	@Override
+	public List<String> selectdistinctVehicleMakes() {
+		// build query
+		String query = "Select distinct e.make from ElectricVehicle e";
+
+		// run query
+		List<String> result = em.createQuery(query, String.class).getResultList();
+
+		Collections.sort(result);
+
+		return result;
+	}
+
 
 }

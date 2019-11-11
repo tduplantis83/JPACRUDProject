@@ -30,6 +30,7 @@ public class ElectricVehicleController {
 	@RequestMapping(path= {"EVindex.do"})
 	public ModelAndView index(ModelAndView mv) {
 		mv = new ModelAndView();
+		mv.addObject("EVMake", dao.selectdistinctVehicleMakes());
 		mv.setViewName("EVindex");
 		return mv; 
 	}

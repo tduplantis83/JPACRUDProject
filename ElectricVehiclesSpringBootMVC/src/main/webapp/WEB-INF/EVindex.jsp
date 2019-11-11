@@ -28,48 +28,17 @@
 				<div class="row">
 					<div class="col-2"></div>
 					<div class="col-8">
-						<form:form action="getEVByID.do" method="GET">
-							<div class="form-group">
-								<label for="id">Vehicle ID</label> <input type="text" name="id"
-									class="form-control" placeholder="Enter Vehicle ID">
-							<button type="submit" class="btn btn-success btn-block">Find
-								EV by ID</button>
-							</div>
-						</form:form>
-					</div>
-					<div class="col-2"></div>
-				</div>
-			</div>
-
-			<br> <br>
-
-			<div class="container">
-				<div class="row">
-					<div class="col-2"></div>
-					<div class="col-8">
 						<form:form action="getEVByMake.do" method="GET">
 							<div class="form-group">
-								<label for="make">Vehicle Make</label> <input type="text"
-									name="make" class="form-control"
-									placeholder="Enter Vehicle Make">
+								<label for="make">Vehicle Make</label> <select class="form-control"
+									id="make" name="make">
+									<c:forEach var="em" items="${EVMake}">
+										<option>${em}</option>
+									</c:forEach>
+								</select>
 							<button type="submit" class="btn btn-success btn-block">Find
 								EV's by Make</button>
 							</div>
-						</form:form>
-					</div>
-					<div class="col-2"></div>
-				</div>
-			</div>
-
-			<br> <br>
-
-			<div class="container">
-				<div class="row">
-					<div class="col-2"></div>
-					<div class="col-8">
-						<form:form action="vehicleCreate.do" method="GET">
-							<button type="submit" class="btn btn-success btn-block">Create
-								a New Electric Vehicle</button>
 						</form:form>
 					</div>
 					<div class="col-2"></div>
@@ -93,6 +62,21 @@
 			</div>
 
 			<br> <br>
+
+			<div class="container">
+				<div class="row">
+					<div class="col-2"></div>
+					<div class="col-8">
+						<form:form action="vehicleCreate.do" method="GET">
+							<button type="submit" class="btn btn-success btn-block">Create
+								a New Electric Vehicle</button>
+						</form:form>
+					</div>
+					<div class="col-2"></div>
+				</div>
+			</div>
+
+			<br> <br> <br> <br>
 
 			<div class="container">
 				<div class="row">
