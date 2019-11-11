@@ -29,8 +29,9 @@
 					<div class="col-8">
 						<form:form action="getStationByCity.do" method="GET">
 							<div class="form-group">
-								<label for="city">City</label> <select class="form-control"
+								<select class="form-control"
 									id="city" name="city">
+									<option disabled selected value> Choose a City </option>
 									<c:forEach var="c" items="${CSCity}">
 										<option>${c}</option>
 									</c:forEach>
@@ -50,8 +51,9 @@
 					<div class="col-8">
 						<form:form action="getStationByState.do" method="GET">
 							<div class="form-group">
-								<label for="state">State Abbreviation</label> <select
+								<select
 									class="form-control" id="state" name="state">
+									<option disabled selected value> Choose a State</option>
 									<c:forEach var="cs" items="${CSState}">
 										<option>${cs}</option>
 									</c:forEach>
@@ -71,8 +73,9 @@
 					<div class="col-8">
 						<form:form action="getStationByConnector.do" method="GET">
 							<div class="form-group">
-								<label for="evConnectorType">EV Connector Type</label> <select
+								<select
 									class="form-control" id="evConnectorType" name="evConnectorType">
+									<option disabled selected value> Choose EV Connector Type </option>
 									<c:forEach var="csc" items="${CSConnector}">
 										<option>${csc}</option>
 									</c:forEach>
@@ -92,8 +95,9 @@
 					<div class="col-8">
 						<form:form action="getStationByNetwork.do" method="GET">
 							<div class="form-group">
-								<label for="evNetwork">EV Network</label> <select
+								<select
 									class="form-control" id="evNetwork" name="evNetwork">
+									<option disabled selected value> Choose EV Network </option>
 									<c:forEach var="csn" items="${CSNetwork}">
 										<option>${csn}</option>
 									</c:forEach>

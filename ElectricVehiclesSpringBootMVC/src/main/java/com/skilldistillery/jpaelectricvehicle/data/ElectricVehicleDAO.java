@@ -8,6 +8,7 @@ public interface ElectricVehicleDAO {
 	public ElectricVehicle createVehicle(ElectricVehicle ev);
 	public ElectricVehicle selectVehicleByID(int id);
 	public List<ElectricVehicle> selectVehicleByMake(String make);
+	public List<ElectricVehicle> selectVehicleByModel(String model);
 	public List<ElectricVehicle> selectAllVehicles();
 	public List<String> selectdistinctVehicleMakes();
 	public List<String> selectdistinctVehicleModels();

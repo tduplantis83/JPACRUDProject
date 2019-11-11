@@ -29,44 +29,42 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<div class="container">
 		<div class="row">
 			<div class="col-2"></div>
 			<div class="col-8">
 				<form:form action="stationUpdate.do" method="POST" items="${CS}">
 					<div class="form-group">
-					
-						<input type="hidden" name="id" value="${CS.id}"/> <label
-							for="stationName">Station Name</label> <input type="text" name="stationName"
-							class="form-control" value="${CS.stationName}" required="required"> <br>
-							
-						<label for="streetAddress">Street Address</label> <input type="text" name="streetAddress"
+
+						<input type="hidden" name="id" value="${CS.id}" /> <label
+							for="stationName">Station Name</label> <input type="text"
+							name="stationName" class="form-control" value="${CS.stationName}"
+							required="required"> <br> <label for="streetAddress">Street
+							Address</label> <input type="text" name="streetAddress"
 							class="form-control" value="${CS.streetAddress}"> <br>
-							
-						<label for="city">City</label> <input
-							type="text" name="city" class="form-control"
-							value="${CS.city}"> <br> 
-							<label
-							for="state">State</label><input
-							type="text" name="state" class="form-control"
-							value="${CS.state}"> <br> 
-							<label
-							for="zip">Zip Code</label> <input
-							type="text" name="zip" class="form-control"
-							value="${CS.zip}" > <br>
-							
-						<label for="country">Country</label> <input
-							type="text" name="country" class="form-control"
-							value="${CS.country}" > <br> 
-							<label
-							for="evNetwork">EV Network</label> <input
-							type="text" name="evNetwork" class="form-control"
-							value="${CS.evNetwork}" > <br> 
-							<label
-							for="evConnectorType">EV Connector Type</label> <input type="text"
-							name="evConnectorType" class="form-control"
-							value="${CS.evConnectorType}" > <br>
+
+						<label for="city">City</label> <input type="text" name="city"
+							class="form-control" value="${CS.city}"> <br> <label
+							for="state">State</label><input type="text" name="state"
+							class="form-control" value="${CS.state}"> <br> <label
+							for="zip">Zip Code</label> <input type="text" name="zip"
+							class="form-control" value="${CS.zip}"> <br> <label
+							for="country">Country</label> <input type="text" name="country"
+							class="form-control" value="${CS.country}"> <br> <select
+							class="form-control" id="evNetwork" name="evNetwork">
+							<option disabled selected value>Choose EV Network</option>
+							<c:forEach var="csn" items="${CSNetwork}">
+								<option>${csn}</option>
+							</c:forEach>
+						</select> <br> <select class="form-control" id="evConnectorType"
+							name="evConnectorType">
+							<option disabled selected value>Choose EV Connector Type
+							</option>
+							<c:forEach var="csc" items="${CSConnector}">
+								<option>${csc}</option>
+							</c:forEach>
+						</select>
 					</div>
 					<button type="submit" class="btn btn-warning btn-block">Update
 						Charging Station</button>
@@ -88,8 +86,8 @@
 			<div class="col-2"></div>
 		</div>
 	</div>
-<br>
-<br>
+	<br>
+	<br>
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

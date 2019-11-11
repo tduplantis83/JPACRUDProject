@@ -78,6 +78,19 @@ public class ElectricVehicleController {
 		return mv;
 	}
 	
+	@RequestMapping(path="getEVByModel.do", method=RequestMethod.GET)
+	public ModelAndView getEVByModel(@RequestParam("model")String model) {
+		ModelAndView mv = new ModelAndView();
+		
+		mv.addObject("EV", dao.selectVehicleByModel(model));
+		mv.addObject("createStatus", false);
+		mv.addObject("deleteStatus", false);
+		mv.addObject("updateStatus", false);
+		mv.setViewName("results");
+		
+		return mv;
+	}
+	
 	@RequestMapping(path = "vehicleCreate.do")
 	public ModelAndView vehicleCreate() {
 		ModelAndView mv = new ModelAndView();

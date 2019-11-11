@@ -128,4 +128,16 @@ public class ElectricVehicleDAOImpl implements ElectricVehicleDAO {
 		return result;
 	}
 
+	@Override
+	public List<ElectricVehicle> selectVehicleByModel(String model) {
+		// build query
+		String query = "Select e from ElectricVehicle e where e.model = :model";
+
+		// run query
+		List<ElectricVehicle> result = em.createQuery(query, ElectricVehicle.class).setParameter("model", model)
+				.getResultList();
+
+		return result;
+	}
+
 }

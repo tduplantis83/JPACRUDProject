@@ -30,8 +30,9 @@
 					<div class="col-8">
 						<form:form action="getEVByMake.do" method="GET">
 							<div class="form-group">
-								<label for="make">Vehicle Make</label> <select class="form-control"
+								<select class="form-control"
 									id="make" name="make">
+									<option disabled selected value> Choose Vehicle Make </option>
 									<c:forEach var="em" items="${EVMake}">
 										<option>${em}</option>
 									</c:forEach>
@@ -51,10 +52,11 @@
 				<div class="row">
 					<div class="col-2"></div>
 					<div class="col-8">
-						<form:form action="getEVByMake.do" method="GET">
+						<form:form action="getEVByModel.do" method="GET">
 							<div class="form-group">
-								<label for="model">Vehicle Model</label> <select class="form-control"
+								<select class="form-control"
 									id="model" name="model">
+									<option disabled selected value> Choose Vehicle Model </option>
 									<c:forEach var="m" items="${EVModel}">
 										<option>${m}</option>
 									</c:forEach>
