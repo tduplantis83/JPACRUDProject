@@ -16,7 +16,7 @@
 	crossorigin="anonymous">
 <title>Charging Stations</title>
 </head>
-<body style="background-color: light gray">
+<body style="background-color: lightgray">
 	<!-- display EV'S -->
 	<c:choose>
 		<c:when test="${fn:length(CS) gt 0}">
