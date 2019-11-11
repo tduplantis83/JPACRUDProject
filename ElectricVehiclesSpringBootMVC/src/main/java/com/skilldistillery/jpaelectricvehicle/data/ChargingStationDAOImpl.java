@@ -1,5 +1,6 @@
 package com.skilldistillery.jpaelectricvehicle.data;
 
+import java.util.Collections;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -95,6 +96,32 @@ public class ChargingStationDAOImpl implements ChargingStationDAO {
 	public ChargingStation selectStationByID(int id) {
 		// run query
 		ChargingStation result = em.find(ChargingStation.class, id);
+
+		return result;
+	}
+
+	@Override
+	public List<String> selectDistinctStates() {
+		// build query
+		String query = "Select distinct e.state from ChargingStation e";
+
+		// run query
+		List<String> result = em.createQuery(query, String.class).getResultList();
+		
+		Collections.sort(result);
+
+		return result;
+	}
+	
+	@Override
+	public List<String> selectDistinctCity() {
+		// build query
+		String query = "Select distinct e.city from ChargingStation e where e.city not like '100 fifth%'";
+
+		// run query
+		List<String> result = em.createQuery(query, String.class).getResultList();
+		
+		Collections.sort(result);
 
 		return result;
 	}

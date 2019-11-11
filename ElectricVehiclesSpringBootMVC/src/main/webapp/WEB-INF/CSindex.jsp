@@ -30,8 +30,12 @@
 			<div class="col-8">
 				<form:form action="getStationByCity.do" method="GET">
 					<div class="form-group">
-						<label for="city">City</label> <input type="text" name="city"
-							class="form-control" placeholder="Enter City">
+						<label for="city">City</label> <select
+							class="form-control" id="city" name="city">
+							<c:forEach var="c" items="${CSCity}">
+								<option>${c}</option>
+							</c:forEach>
+						</select>
 					</div>
 					<button type="submit" class="btn btn-info btn-block">Find
 						Charging Station by City</button>
@@ -48,8 +52,12 @@
 			<div class="col-8">
 				<form:form action="getStationByState.do" method="GET">
 					<div class="form-group">
-						<label for="state">Enter State Abbreviation</label> <input type="text" name="state"
-							class="form-control" placeholder="Enter State">
+						<label for="state">State Abbreviation</label> <select
+							class="form-control" id="state" name="state">
+							<c:forEach var="cs" items="${CSState}">
+								<option>${cs}</option>
+							</c:forEach>
+						</select>
 					</div>
 					<button type="submit" class="btn btn-info btn-block">Find
 						Charging Station by State Abbreviation</button>
@@ -75,17 +83,17 @@
 	<br>
 	<br>
 	<div class="container">
-				<div class="row">
-					<div class="col-2"></div>
-					<div class="col-8">
-						<form action="/" method="get">
-							<button class="btn btn-primary btn-block btn-lg">Back to
-								Home</button>
-						</form>
-					</div>
-					<div class="col-2"></div>
-				</div>
+		<div class="row">
+			<div class="col-2"></div>
+			<div class="col-8">
+				<form action="/" method="get">
+					<button class="btn btn-primary btn-block btn-lg">Back to
+						Home</button>
+				</form>
 			</div>
+			<div class="col-2"></div>
+		</div>
+	</div>
 	<br>
 	<br>
 

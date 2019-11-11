@@ -14,7 +14,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.jpaelectricvehicle.data.ChargingStationDAO;
 import com.skilldistillery.jpaelectricvehicle.entities.ChargingStation;
-import com.skilldistillery.jpaelectricvehicle.entities.ElectricVehicle;
 
 @Controller
 public class ChargingStationController {
@@ -24,6 +23,8 @@ public class ChargingStationController {
 	@RequestMapping(path= {"CSindex.do"})
 	public ModelAndView index(ModelAndView mv) {
 		mv = new ModelAndView();
+		mv.addObject("CSState", dao.selectDistinctStates());
+		mv.addObject("CSCity", dao.selectDistinctCity());
 		mv.setViewName("CSindex");
 		return mv; 
 	}
