@@ -18,7 +18,7 @@
 </head>
 <body>
 	<div class="container-fluid">
-		<h3 style="color: blue">Charging Stations</h3>
+		<h2 style="color: blue">Charging Stations</h2>
 		<hr>
 	</div>
 	<div id="parent">

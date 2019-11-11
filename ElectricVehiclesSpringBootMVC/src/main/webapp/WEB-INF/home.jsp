@@ -18,8 +18,8 @@
 </head>
 <body>
 	<div class="container-fluid">
-		<h3 style="color: blue">Electric Vehicle & Charging Station MVC
-			Database Application</h3>
+		<h2 style="color: blue">Electric Vehicle & Charging Station MVC
+			Database Application</h2>
 		<hr>
 	</div>
 	<div id="parent">

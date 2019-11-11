@@ -19,7 +19,7 @@
 <body>
 
 	<div class="container-fluid">
-		<h3 style="color: green">Electric Vehicles</h3>
+		<h2 style="color: green">Electric Vehicles</h2>
 		<hr>
 	</div>
 	<div id="parent">
