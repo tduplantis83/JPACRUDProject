@@ -55,16 +55,22 @@
 							placeholder="Zip Code"> <br> 
 							<label
 							for="country">Country</label> <input type="text"
-							name=""country"" class="form-control"
+							name="country" class="form-control"
 							placeholder="Country"> <br> 
-							<label
-							for="evNetwork">EV Network</label> <input
-							type="text" name="evNetwork" class="form-control"
-							placeholder="EV Network"> <br> 
-							<label
-							for="evConnectorType">EV Connector Type</label> <input type="text"
-							name="evConnectorType" class="form-control"
-							placeholder="EV Connector Type">
+							<label for="evNetwork">EV Network</label> <select
+									class="form-control" id="evNetwork" name="evNetwork">
+									<option disabled selected value> Choose EV Network </option>
+									<c:forEach var="csn" items="${CSNetwork}">
+										<option>${csn}</option>
+									</c:forEach>
+								</select> <br> 
+							<label for="evConnectorType">EV Connector Type</label> <select
+									class="form-control" id="evConnectorType" name="evConnectorType">
+									<option disabled selected value> Choose EV Connector Type </option>
+									<c:forEach var="csc" items="${CSConnector}">
+										<option>${csc}</option>
+									</c:forEach>
+								</select>
 					</div>
 					<button type="submit" class="btn btn-info btn-block">Create
 						Charging Station</button>

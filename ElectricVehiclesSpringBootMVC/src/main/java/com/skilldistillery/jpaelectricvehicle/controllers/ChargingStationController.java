@@ -35,6 +35,8 @@ public class ChargingStationController {
 	public ModelAndView stationCreate() {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("createStation");
+		mv.addObject("CSNetwork", dao.selectDistinctNetwork());
+		mv.addObject("CSConnector", dao.selectDistinctConnector());
 		mv.addObject("createStatus", false);
 		return mv;
 	}
