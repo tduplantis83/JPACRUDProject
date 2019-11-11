@@ -107,12 +107,12 @@ public class ChargingStationDAOImpl implements ChargingStationDAO {
 
 		// run query
 		List<String> result = em.createQuery(query, String.class).getResultList();
-		
+
 		Collections.sort(result);
 
 		return result;
 	}
-	
+
 	@Override
 	public List<String> selectDistinctCity() {
 		// build query
@@ -120,8 +120,61 @@ public class ChargingStationDAOImpl implements ChargingStationDAO {
 
 		// run query
 		List<String> result = em.createQuery(query, String.class).getResultList();
-		
+
 		Collections.sort(result);
+
+		return result;
+	}
+
+	@Override
+	public List<String> selectDistinctNetwork() {
+		// build query
+		String query = "Select distinct e.evNetwork from ChargingStation e where e.evNetwork is not NULL and e.evNetwork <> 'NULL'";
+
+		// run query
+		List<String> result = em.createQuery(query, String.class).getResultList();
+
+		Collections.sort(result);
+
+		return result;
+	}
+
+	@Override
+	public List<String> selectDistinctConnector() {
+		// build query
+		String query = "Select distinct e.evConnectorType from ChargingStation e where e.evConnectorType is not NULL and e.evConnectorType <> 'NULL'";
+
+		// run query
+		List<String> result = em.createQuery(query, String.class).getResultList();
+
+		Collections.sort(result);
+
+		return result;
+	}
+
+	@Override
+	public List<ChargingStation> selectStationByNetwork(String n) {
+		String query = "Select e from ChargingStation e where e.evNetwork = :net";
+
+		// run query
+		List<ChargingStation> result = em.createQuery(query, ChargingStation.class)
+				.setParameter("net", n)
+				.getResultList();
+		
+		
+		return result;
+	}
+	
+	
+
+	@Override
+	public List<ChargingStation> selectStationByConnector(String c) {
+		String query = "Select e from ChargingStation e where e.evConnectorType = :conn";
+
+		// run query
+		List<ChargingStation> result = em.createQuery(query, ChargingStation.class)
+				.setParameter("conn", c)
+				.getResultList();
 
 		return result;
 	}

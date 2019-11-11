@@ -25,6 +25,8 @@ public class ChargingStationController {
 		mv = new ModelAndView();
 		mv.addObject("CSState", dao.selectDistinctStates());
 		mv.addObject("CSCity", dao.selectDistinctCity());
+		mv.addObject("CSNetwork", dao.selectDistinctNetwork());
+		mv.addObject("CSConnector", dao.selectDistinctConnector());
 		mv.setViewName("CSindex");
 		return mv; 
 	}
@@ -84,6 +86,32 @@ public class ChargingStationController {
 		ModelAndView mv = new ModelAndView();
 		
 		mv.addObject("CS", dao.selectStationByCity(city));
+		mv.addObject("createStatus", false);
+		mv.addObject("deleteStatus", false);
+		mv.addObject("updateStatus", false);
+		mv.setViewName("CSresults");
+		
+		return mv;
+	}
+	
+	@RequestMapping(path="getStationByNetwork.do", method=RequestMethod.GET)
+	public ModelAndView getCSByNetwork(@RequestParam("evNetwork")String evNetwork) {
+		ModelAndView mv = new ModelAndView();
+		
+		mv.addObject("CS", dao.selectStationByNetwork(evNetwork));
+		mv.addObject("createStatus", false);
+		mv.addObject("deleteStatus", false);
+		mv.addObject("updateStatus", false);
+		mv.setViewName("CSresults");
+		
+		return mv;
+	}
+	
+	@RequestMapping(path="getStationByConnector.do", method=RequestMethod.GET)
+	public ModelAndView getCSByConnector(@RequestParam("evConnectorType")String conn) {
+		ModelAndView mv = new ModelAndView();
+		
+		mv.addObject("CS", dao.selectStationByConnector(conn));
 		mv.addObject("createStatus", false);
 		mv.addObject("deleteStatus", false);
 		mv.addObject("updateStatus", false);

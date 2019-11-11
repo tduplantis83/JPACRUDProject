@@ -54,7 +54,7 @@
 						<form:form action="getEVByMake.do" method="GET">
 							<div class="form-group">
 								<label for="model">Vehicle Model</label> <select class="form-control"
-									id=""model"" name=""model"">
+									id="model" name="model">
 									<c:forEach var="m" items="${EVModel}">
 										<option>${m}</option>
 									</c:forEach>

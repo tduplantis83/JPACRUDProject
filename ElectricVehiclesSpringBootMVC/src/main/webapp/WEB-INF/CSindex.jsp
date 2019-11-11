@@ -43,7 +43,7 @@
 					<div class="col-2"></div>
 				</div>
 			</div>
-			<br> <br>
+			<br> 
 			<div class="container">
 				<div class="row">
 					<div class="col-2"></div>
@@ -58,6 +58,48 @@
 								</select>
 								<button type="submit" class="btn btn-info btn-block">Find
 									Charging Station by State</button>
+							</div>
+						</form:form>
+					</div>
+					<div class="col-2"></div>
+				</div>
+			</div>
+			<br> 
+			<div class="container">
+				<div class="row">
+					<div class="col-2"></div>
+					<div class="col-8">
+						<form:form action="getStationByConnector.do" method="GET">
+							<div class="form-group">
+								<label for="evConnectorType">EV Connector Type</label> <select
+									class="form-control" id="evConnectorType" name="evConnectorType">
+									<c:forEach var="csc" items="${CSConnector}">
+										<option>${csc}</option>
+									</c:forEach>
+								</select>
+								<button type="submit" class="btn btn-info btn-block">Find
+									Charging Station by Connector Type</button>
+							</div>
+						</form:form>
+					</div>
+					<div class="col-2"></div>
+				</div>
+			</div>
+			<br> 
+			<div class="container">
+				<div class="row">
+					<div class="col-2"></div>
+					<div class="col-8">
+						<form:form action="getStationByNetwork.do" method="GET">
+							<div class="form-group">
+								<label for="evNetwork">EV Network</label> <select
+									class="form-control" id="evNetwork" name="evNetwork">
+									<c:forEach var="csn" items="${CSNetwork}">
+										<option>${csn}</option>
+									</c:forEach>
+								</select>
+								<button type="submit" class="btn btn-info btn-block">Find
+									Charging Station by Network</button>
 							</div>
 						</form:form>
 					</div>
