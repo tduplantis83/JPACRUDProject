@@ -52,7 +52,7 @@ class ElectricVehicleTest {
 		assertEquals(140, e.getTopSpeedMPH());
 		assertEquals(39000, e.getOriginalcostUSD(), 0.001);
 		assertEquals(300, e.getMaxRangeInMiles());
-		assertEquals("Coming Soon", e.getComments());
+		assertEquals("", e.getComments());
 	}
 
 }

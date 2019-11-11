@@ -26,6 +26,7 @@ public class ElectricVehicle {
 	private Integer topSpeedMPH;
 	@Column(name="Original_Cost_USD")
 	private Double originalcostUSD;
+	@Column(name="Max_Range_In_Miles")
 	private Integer maxRangeInMiles;
 	@Column(name="coments")
 	private String comments;
